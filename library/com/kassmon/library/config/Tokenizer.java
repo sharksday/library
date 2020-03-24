@@ -1,8 +1,8 @@
-package com.kassmon.lib.config;
+package com.kassmon.library.config;
 
 import java.util.regex.Pattern;
 
-public class Tokenizer extends com.kassmon.lib.tokenizers.Tokenizer {
+public class Tokenizer extends com.kassmon.library.tokenizers.Tokenizer {
 	
 	public Tokenizer () {
 		//super.addPattern(Pattern.compile("^()") , "");

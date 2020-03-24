@@ -1,4 +1,4 @@
-package com.kassmon.lib.tokenizers;
+package com.kassmon.library.tokenizers;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;

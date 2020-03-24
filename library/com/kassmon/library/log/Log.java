@@ -1,4 +1,4 @@
-package com.kassmon.lib.log;
+package com.kassmon.library.log;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.kassmon.lib.tokenizers;
+package com.kassmon.library.tokenizers;
 
 public class Token {
 

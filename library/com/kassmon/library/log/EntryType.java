@@ -1,4 +1,4 @@
-package com.kassmon.lib.log;
+package com.kassmon.library.log;
 
 public enum EntryType {
 	INFO,

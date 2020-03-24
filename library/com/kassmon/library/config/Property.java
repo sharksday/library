@@ -1,4 +1,4 @@
-package com.kassmon.lib.config;
+package com.kassmon.library.config;
 
 public class Property {
 	private String key;
