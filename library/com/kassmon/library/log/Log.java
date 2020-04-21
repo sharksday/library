@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Log {
 	
+	private static boolean report = false;
+	
 	private static ArrayList<LogEntry> logEntries = new ArrayList<>();
 	
 	public static ArrayList<NewLogEntryEvent> eventLisners = new ArrayList<>();
@@ -13,7 +15,7 @@ public class Log {
 		LogEntry entry = new LogEntry(entryType,path,error, html);
 		logEntries.add(entry);
 		newEvent(entry);
-		//System.out.println(entry.getError());
+		if (report) System.out.println(entry.getErrorType().toString() + " " + entry.getPath() + " " + entry.getError());
 	}
 	
 	public static String[] getLogAsString () {
@@ -69,5 +71,12 @@ public class Log {
 		out = "<p><b style=\"background:" + bgColor +"\">" + entryType.toString() + "</b> " + path + " " + error + "</p>" + System.lineSeparator();
 		return out;
 	}
+	
+
+	public static void setReport(boolean report) {
+		Log.report = report;
+	}
+	
+	
 	
 }
