@@ -22,8 +22,8 @@ public class Tokenizer {
 	}
 	
 	public Token getNextToken(){
-		input = input.trim();
 		if (hasNextToken()){
+			input = input.trim();
 			for (TokenPattern pattern: patterns){
 				Matcher matcher = pattern.getPattern().matcher(input);
 				if (matcher.find()){
@@ -36,7 +36,12 @@ public class Tokenizer {
 		return new Token("null", "null");
 	}
 	
-	public void setInput(String input) {this.input = input;}
+	public void setInput(String input) {
+		this.input = input;
+		}
 	
-	public String getInput() {return input;}
+	public String getInput() {
+		return input;
+		}
+	
 }

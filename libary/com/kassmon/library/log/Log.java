@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Log {
 	
 	private static boolean report = false;
+	private static EntryType reportLevel = EntryType.INFO;
 	
 	private static ArrayList<LogEntry> logEntries = new ArrayList<>();
-	
 	public static ArrayList<NewLogEntryEvent> eventLisners = new ArrayList<>();
 	
 	public static void newLogEntry(EntryType entryType, String path, String error) {
@@ -15,7 +15,7 @@ public class Log {
 		LogEntry entry = new LogEntry(entryType,path,error, html);
 		logEntries.add(entry);
 		newEvent(entry);
-		if (report) System.out.println(entry.getErrorType().toString() + " " + entry.getPath() + " " + entry.getError());
+		if (report) System.out.print(reportSystem(entryType, path, error));
 	}
 	
 	public static String[] getLogAsString () {
@@ -72,11 +72,33 @@ public class Log {
 		return out;
 	}
 	
-
 	public static void setReport(boolean report) {
 		Log.report = report;
 	}
 	
+	public static void setReportLevel(EntryType type) {
+		reportLevel = type;
+	}
 	
+	private static String reportSystem(EntryType entryType, String path, String error) {
+		
+		if (reportLevel == EntryType.INFO) {
+			return (entryType.toString() + " " + path + " " + error + System.lineSeparator());
+		}else if (reportLevel == EntryType.WARNING) {
+			if (entryType != EntryType.INFO) {
+				return (entryType.toString() + " " + path + " " + error+ System.lineSeparator());
+			}else {
+				return "";
+			}
+		}else if (reportLevel == EntryType.ERROR) {
+			if (entryType == EntryType.ERROR) {
+				return (entryType.toString() + " " + path + " " + error+ System.lineSeparator());
+			}else {
+				return "";
+			}
+		}else {
+			return "";
+		}
+	}
 	
 }
